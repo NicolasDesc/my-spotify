@@ -7,7 +7,7 @@ import './Footer.scss';
 import 'rc-slider/assets/index.css';
 
 export default function Footer() {
-  const [volume, setVolume] = useState(0);
+  const [volume, setVolume] = useState(50);
 
   return (
     <div className="footer p-3 d-flex align-items-center">
@@ -19,11 +19,11 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-center d-flex align-items-center justify-content-center">
-        <Shuffle className="mx-2 shuffle-icon green" size={20} />
+        <Shuffle className="mx-2 shuffle-icon" size={20} />
         <SkipStartFill className="mx-2 skip-start-fill-icon" size={20} />
         <PlayCircleFill className="mx-2 play-circle-fill-icon" size={28} />
         <SkipEndFill className="mx-2 skip-end-fill-icon" size={20} />
-        <ArrowRepeat className="mx-2 arrow-repeat-icon green" size={20} />
+        <ArrowRepeat className="mx-2 arrow-repeat-icon" size={20} />
       </div>
       <div className="footer-right d-flex align-items-center justify-content-end">
         <List className="mx-2 list-icon" size={20} />

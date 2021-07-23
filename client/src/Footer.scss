@@ -16,21 +16,30 @@
     flex: 0.6;
   }
 
-  // .shuffle-icon,
-  // .skip-start-fill-icon,
-  // .play-circle-fill-icon,
-  // .skip-end-fill-icon,
-  // .arrow-repeat-icon {
-  svg {
+  .shuffle-icon,
+  .skip-start-fill-icon,
+  .skip-end-fill-icon,
+  .arrow-repeat-icon,
+  .list-icon,
+  .volume-up-icon {
     color: darken(white, 40%);
     transition: color ease-in 200ms;
 
-    &.green {
+    &.enabled {
       color: $spotify-green;
     }
 
     &:hover {
       color: white;
+    }
+  }
+
+  .play-circle-fill-icon {
+    transform: scale(1);
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }
