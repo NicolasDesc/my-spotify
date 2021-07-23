@@ -6,4 +6,31 @@
   height: 65px;
   width: 100%;
   background-color: #282828;
+  color: white;
+
+  .footer-left,
+  .footer-right {
+    flex: 0.2;
+  }
+  .footer-center {
+    flex: 0.6;
+  }
+
+  // .shuffle-icon,
+  // .skip-start-fill-icon,
+  // .play-circle-fill-icon,
+  // .skip-end-fill-icon,
+  // .arrow-repeat-icon {
+  svg {
+    color: darken(white, 40%);
+    transition: color ease-in 200ms;
+
+    &.green {
+      color: $spotify-green;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
 }
