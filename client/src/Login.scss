@@ -1,0 +1,12 @@
+@import "./_variables.scss";
+
+.btn-login {
+  background-color: $spotify-green;
+  color: $spotify-white;
+  transition: background-color ease-in 300ms;
+
+  &:hover {
+    background-color: darken($spotify-green, 15%);
+    color: $spotify-white;
+  }
+}
