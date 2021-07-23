@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 
 import { ReactComponent as SpotifyLogo } from './svg/Spotify-White-Logo.wine.svg';
 import './Login.scss';
@@ -12,10 +11,10 @@ const AUTH_URL = 'https://accounts.spotify.com/authorize' +
   '&scope=' + encodeURIComponent(scopes);
 
 export default function Login() {
-  return <Container className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+  return <div className="login d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
     <SpotifyLogo width={500} height={300}/>
     <a className="btn btn-login btn-lg" href={AUTH_URL}>
       Login With Spotify
     </a>
-  </Container>
+  </div>
 }
