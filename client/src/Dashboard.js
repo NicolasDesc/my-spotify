@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Form } from 'react-bootstrap';
-import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
 
-import useAuth from './useAuth';
 import TrackSearchResult from './TrackSearchResult';
 import Player from './Player';
 
-const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.REACT_APP_CLIENT_ID,
-
-})
-
-export default function Dashboard({ code }) {
-  const accessToken = useAuth(code);
+export default function Dashboard({ spotifyApi }) {
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
@@ -26,15 +18,7 @@ export default function Dashboard({ code }) {
   }
 
   useEffect(() => {
-    if (!accessToken) return;
-
-    spotifyApi.setAccessToken(accessToken);
-
-  }, [accessToken]);
-
-  useEffect(() => {
     if (!search) return setSearchResults([]);
-    if (!accessToken) return;
 
     let cancel = false;
     spotifyApi.searchTracks(search).then(res => {
@@ -58,7 +42,7 @@ export default function Dashboard({ code }) {
 
     return () => cancel = true;
 
-  }, [search, accessToken]);
+  }, [search]);
 
   useEffect(() => {
     if (!playingTrack) return;
@@ -74,8 +58,8 @@ export default function Dashboard({ code }) {
   }, [playingTrack])
 
   return (
-    <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
-      <Form.Control type="search" placeholder="Search Songs/Artists" value={search} onChange={e => setSearch(e.target.value)} />
+    <Container className="dashboard" style={{ height: "100vh" }}>
+      {/* <Form.Control type="search" placeholder="Search Songs/Artists" value={search} onChange={e => setSearch(e.target.value)} />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
         {searchResults.map(track => (
           <TrackSearchResult
@@ -90,9 +74,8 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
-      <div>
-        <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
-      </div>
-    </Container>
+      <Player accessToken={accessToken} trackUri={playingTrack?.uri} /> 
+      </div> */}
+    </Container >
   )
 }
