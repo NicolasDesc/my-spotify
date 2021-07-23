@@ -21,6 +21,11 @@ function App() {
   useEffect(() => {
     if (!_accessToken) return;
 
+    dispatch({
+      type: "SET_SPOTIFY_API",
+      spotify: spotifyApi,
+    });
+
     spotifyApi.setAccessToken(_accessToken);
 
     dispatch({
@@ -31,14 +36,21 @@ function App() {
     spotifyApi.getMe().then((data) => {
       dispatch({
         type: "SET_USER",
-        user: data.body,
+        user: data.body
       });
     });
 
-  }, [_accessToken, dispatch]);
+    spotifyApi.getUserPlaylists().then((data) => {
+      dispatch({
+        type: "SET_PLAYLISTS",
+        playlists: data.body.items
+      });
+    });
+
+  }, [_accessToken]);
 
   return <div className="my-spotify-app">
-    {access_token ? <Dashboard spotifyApi={spotifyApi} /> : <Login />}
+    {access_token ? <Dashboard /> : <Login />}
   </div>
 }
 
