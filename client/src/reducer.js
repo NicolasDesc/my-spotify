@@ -18,47 +18,23 @@ const reducer = (state, action) => {
         user: action.user,
       };
 
-    // case "SET_PLAYING":
-    //   return {
-    //     ...state,
-    //     playing: action.playing,
-    //   };
-
-    // case "SET_ITEM":
-    //   return {
-    //     ...state,
-    //     item: action.item,
-    //   };
-
-    // case "SET_DISCOVER_WEEKLY":
-    //   return {
-    //     ...state,
-    //     discover_weekly: action.discover_weekly,
-    //   };
-
-    // case "SET_TOP_ARTISTS":
-    //   return {
-    //     ...state,
-    //     top_artists: action.top_artists,
-    //   };
-
     case "SET_ACCESS_TOKEN":
       return {
         ...state,
         access_token: action.access_token,
       };
 
-    // case "SET_SPOTIFY":
-    //   return {
-    //     ...state,
-    //     spotify: action.spotify,
-    //   };
+    case "SET_SPOTIFY_API":
+      return {
+        ...state,
+        spotifyApi: action.spotifyApi,
+      };
 
-    // case "SET_PLAYLISTS":
-    //   return {
-    //     ...state,
-    //     playlists: action.playlists,
-    //   };
+    case "SET_PLAYLISTS":
+      return {
+        ...state,
+        playlists: action.playlists,
+      };
     default:
       return state;
   }
