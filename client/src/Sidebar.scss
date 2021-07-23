@@ -5,4 +5,14 @@
   color: white;
   min-width: 225px;
   background-color: $spotify-black;
+  font-size: 0.9rem;
+
+  .spotify-icon {
+    position: relative;
+    right: 4px;
+  }
+
+  > .border {
+    width: 90%;
+  }
 }

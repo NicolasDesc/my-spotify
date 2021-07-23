@@ -1,0 +1,9 @@
+.sidebar-option {
+  cursor: pointer;
+  color: grey;
+  transition: color ease-in 200ms;
+
+  &:hover {
+    color: white;
+  }
+}
